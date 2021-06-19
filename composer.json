@@ -27,5 +27,17 @@
         "psr-4": {
             "ErgonautTM\\GNewsApi\\": "src/"
         }
-    }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ErgonautTM\\GNewsApi\\GNewsApiServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

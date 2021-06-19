@@ -8,12 +8,14 @@ class GNewsApiServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->configurePublishing();
+        $configPath = __DIR__ . '/../config/gnewsapi.php';
+        $this->publishes([$configPath => $this->getConfigPath()], 'config');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/gnewsapi.php', 'gnewsapi');
+        $configPath = __DIR__ . '/../config/gnewsapi.php';
+        $this->mergeConfigFrom($configPath, 'gnewsapi');
 
         $this->app->bind('gnews', function () {
             return new GNewsApi();
@@ -21,14 +23,22 @@ class GNewsApiServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the publishable resources offered by the package.
+     * Publish the config file
      *
-     * @return void
+     * @param string $configPath
      */
-    protected function configurePublishing()
+    protected function publishConfig(string $configPath)
     {
-        $this->publishes([
-            __DIR__.'/../config/gnewsapi.php' => config_path('gnewsapi.php'),
-        ], 'config');
+        $this->publishes([$configPath => config_path('gnewsapi.php')], 'config');
+    }
+
+    /**
+     * Get the config path
+     *
+     * @return string
+     */
+    protected function getConfigPath(): string
+    {
+        return config_path('gnewsapi.php');
     }
 }
