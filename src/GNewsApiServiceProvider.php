@@ -17,9 +17,21 @@ class GNewsApiServiceProvider extends ServiceProvider
         $configPath = __DIR__ . '/../config/gnewsapi.php';
         $this->mergeConfigFrom($configPath, 'gnewsapi');
 
+        $this->registerGNewsApi();
+    }
+
+    /**
+     * Register the GNewsApi class.
+     *
+     * @return void
+     */
+    protected function registerGNewsApi()
+    {
         $this->app->bind('gnews', function () {
             return new GNewsApi();
         });
+
+        $this->app->alias('gnews', GNewsApi::class);
     }
 
     /**
