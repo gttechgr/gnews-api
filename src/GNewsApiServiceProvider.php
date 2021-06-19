@@ -27,14 +27,8 @@ class GNewsApiServiceProvider extends ServiceProvider
      */
     protected function configurePublishing()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/gnewsapi.php' => config_path('gnewsapi.php'),
-            ], 'gnews-config');
-
-//            $this->publishes([
-//                __DIR__.'/../stubs/FortifyServiceProvider.php' => app_path('Providers/FortifyServiceProvider.php'),
-//            ], 'fortify-support');
-        }
+        $this->publishes([
+            __DIR__.'/../config/gnewsapi.php' => config_path('gnewsapi.php'),
+        ], 'config');
     }
 }
