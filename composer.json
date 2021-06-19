@@ -1,10 +1,21 @@
 {
     "name": "gt-tech/gnews-api",
     "description": "GNews API package for laravel",
-    "authors": [{
-        "name": "George Tsachrelias",
-        "email": "info@g-tsachrelias.com"
-    }],
+    "keywords": [
+        "gt-tech",
+        "api",
+        "gnews"
+    ],
+    "homepage": "https://github.com/TsachreliasTech/gnews-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Tsachrelias",
+            "email": "info@g-tsachrelias.com",
+            "homepage": "https://g-tsachrelias.com",
+            "role": "Web Developer"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "guzzlehttp/guzzle": "^7.0.1"
