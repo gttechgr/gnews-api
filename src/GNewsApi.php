@@ -33,7 +33,7 @@ class GNewsApi
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws GNewsApiException
      */
-    public function getTopHeadLines($q = null, $topic = null, $from = null, $to = null, $max = 10, $country = 'gr', $lang = 'el')
+    public function getTopHeadLines($q = null, $topic = 'breaking-news', $from = null, $to = null, $max = 10, $country = 'gr', $lang = 'el')
     {
         if (!is_null($q)) {
             $this->payload['q'] = $q;
@@ -63,7 +63,7 @@ class GNewsApi
             }
         }
 
-        if ($max >= 1 && $max <= 10) {
+        if ($max >= 1 && $max <= 100) {
             $this->payload['max'] = $max;
         } else {
             throw new GNewsApiException("Invalid Max Value Provided");
@@ -134,7 +134,7 @@ class GNewsApi
             }
         }
 
-        if ($max >= 1 && $max <= 10) {
+        if ($max >= 1 && $max <= 100) {
             $this->payload['max'] = $max;
         } else {
             throw new GNewsApiException("Invalid Max Value Provided");
